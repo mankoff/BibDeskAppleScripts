@@ -1,29 +1,36 @@
 
-* A link between pdfmeat.py and BibDesk
-
+* A link between BibDesk, pdfmeat.py and bibfetch.pl
 ** Current Version
 
-This version takes one selected BibDesk record, passes the PDF to
-pdfmeat.py, and then transfers Volume, Number, and Pages from the
-returned BibTeX record to the current record.
+This version takes one or more selected BibDesk records and fills in
+missing information using Google Scholar search. If a title exists in
+the record, it uses bibfetch to search Google Scholar. If a PDF exists
+and no title, it uses pdfmeat to parse the PDF and search Google
+Scholar.
+
+Various fields returned by the search are filled in to each existing
+record. Nothing is overwritten.
+
+*** Dependencies
+
+This script uses both [[http://github.com/mankoff/pdfmeat][pdfmeat]] and [[http://github.com/mankoff/bibfetch][bibfetch]]. You should have those both
+running on your system and working from the command line, and then
+modify this script so it can access them.
+
+pdfmeat is a Python script and it relies on pdftotext among other
+things. You should have that installed if you use LaTeX. It also
+depends on a variety of Python modules.
+bibfetch is a Perl script that also has several dependencies.
+
+
 
 ** Project Goal
 
-+ Run on one or more selected BibDesk records.
-+ For each record, if a title exists in the record, search Google
++ [X] Run on one or more selected BibDesk records.
++ [X] For each record, if a title exists in the record, search Google
   Scholar using that information. Also use first author name if
   available.
   + Perhaps use a modified pdfmeat to do the search.
-+ If a title does not exist and a PDF does, then use pdfmeat with the
+    =This is important. pdfmeat.py is MUCH BETTER than bibfetch.pl=
++ [X] If a title does not exist and a PDF does, then use pdfmeat with the
   linked PDF
-
-At this point, we should have a Google Scholar BibTeX record, called "newPub"
-
-+ For each field in newPub, copy to existingPub if that field is blank
-  in existingPub.
-+ Remove newPub
-
-** See Also
-
-   + pdfmeat: https://github.com/mankoff/pdfmeat
-   + bibfetch: https://github.com/mankoff/bibfetch
