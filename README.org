@@ -25,5 +25,5 @@ At this point, we should have a Google Scholar BibTeX record, called "newPub"
 
 ** See Also
 
-   pdfmeat: https://github.com/mankoff/pdfmeat
-   bibfetch: https://github.com/mankoff/bibfetch
+   + pdfmeat: https://github.com/mankoff/pdfmeat
+   + bibfetch: https://github.com/mankoff/bibfetch
