@@ -1,0 +1,24 @@
+
+# A link between pdfmeat.py and BibDesk
+
+## Current Version
+
+This version takes one selected BibDesk record, passes the PDF to
+pdfmeat.py, and then transfers Volume, Number, and Pages from the
+returned BibTeX record to the current record.
+
+## Project Goal
+
+* Run on one or more selected BibDesk records.
+* For each record, if a title exists in the record, search Google
+  Scholar using that information. Also use first author name if
+  available.
+  * Perhaps use a modified pdfmeat to do the search.
+* If a title does not exist and a PDF does, then use pdfmeat with the
+  linked PDF
+
+At this point, we should have a Google Scholar BibTeX record, called "newPub"
+
+* For each field in newPub, copy to existingPub if that field is blank
+  in existingPub.
+* Remove newPub
