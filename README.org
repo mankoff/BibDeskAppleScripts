@@ -20,17 +20,25 @@ modify this script so it can access them.
 pdfmeat is a Python script and it relies on pdftotext among other
 things. You should have that installed if you use LaTeX. It also
 depends on a variety of Python modules.
+
 bibfetch is a Perl script that also has several dependencies.
 
+** Project Status
 
+*** ToDo
++ [ ] Modify pdfmeat.py to use a search string (title) passed as
+  argument rather than parsing PDF. Explicitly specifying the search
+  term will increase success rate, and pdfmeat.py does a much better
+  job returning full BibTeX records than bibfetch.pl
++ [ ] Add authors if that field is blank
++ [ ] Add publisher if field is blank
++ [ ] Add PDF if none currently linked. bibfetch.pl optionally returns
+  a link to a PDF file. A few more shell commands (curl?) could
+  download it.
 
-** Project Goal
-
+*** Done
 + [X] Run on one or more selected BibDesk records.
 + [X] For each record, if a title exists in the record, search Google
-  Scholar using that information. Also use first author name if
-  available.
-  + Perhaps use a modified pdfmeat to do the search.
-    =This is important. pdfmeat.py is MUCH BETTER than bibfetch.pl=
+  Scholar using that information. 
 + [X] If a title does not exist and a PDF does, then use pdfmeat with the
   linked PDF
