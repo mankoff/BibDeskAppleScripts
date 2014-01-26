@@ -1,6 +1,31 @@
 
-* A link between BibDesk, pdfmeat.py and bibfetch.pl
-** Current Version
+* Some BibDesk Apple Scripts
+
+** bibfetch.pl.scpt
+
+This script does the following:
+  1) For each selected BibDesk publication
+  2) Passes the quoted Title to bibfetch.pl
+  3) Parses the results of bibfetch.pl for the URL of the PDF
+  4) Uses curl to download the PDF
+  5) Attaches the PDF to the publication
+  6) Auto-files the PDF
+
+*** Installing bibfetch.pl  
+
+In order to get [[https://github.com/mankoff/bibfetch][bibfetch.pl]] working download the script, and install
+all of the dependencies it needs by typing something similar to the
+following at the shell prompt:
+ 
+ cpan install App::cpanminus
+ and then
+ cpanm Foo::Bar
+ 
+ You might need to use "sudo" before cpan and cpanm
+
+Customize this script to the location where you installed it.
+
+** pdfmeat.py.scpt
 
 This version takes one or more selected BibDesk records and fills in
 missing information using Google Scholar search. If a title exists in
@@ -23,9 +48,9 @@ depends on a variety of Python modules.
 
 bibfetch is a Perl script that also has several dependencies.
 
-** Project Status
+*** Project Status
 
-*** ToDo
+**** ToDo
 + [ ] Modify pdfmeat.py to use a search string (title) passed as
   argument rather than parsing PDF. Explicitly specifying the search
   term will increase success rate, and pdfmeat.py does a much better
@@ -36,7 +61,7 @@ bibfetch is a Perl script that also has several dependencies.
   a link to a PDF file. A few more shell commands (curl?) could
   download it.
 
-*** Done
+**** Done
 + [X] Run on one or more selected BibDesk records.
 + [X] For each record, if a title exists in the record, search Google
   Scholar using that information. 
