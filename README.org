@@ -5,7 +5,7 @@
 
 This script does the following:
   1) For each selected BibDesk publication
-  2) Passes the quoted Title to bibfetch.pl
+  2) Passes the DOI if available or the quoted Title if no DOI to bibfetch.pl
   3) Parses the results of bibfetch.pl for the URL of the PDF
   4) Uses curl to download the PDF
   5) Attaches the PDF to the publication
