@@ -28,42 +28,20 @@ Customize this script to the location where you installed it.
 ** pdfmeat.py.scpt
 
 This version takes one or more selected BibDesk records and fills in
-missing information using Google Scholar search. If a title exists in
-the record, it uses bibfetch to search Google Scholar. If a PDF exists
-and no title, it uses pdfmeat to parse the PDF and search Google
-Scholar.
+missing information using Google Scholar search. If a DOI or title
+exists in the record, it searches Google Scholar with pdfmeat.py. If a
+PDF exists and no title, it uses pdfmeat to parse the PDF and then
+searches Google Scholar.
 
 Various fields returned by the search are filled in to each existing
 record. Nothing is overwritten.
 
 *** Dependencies
 
-This script uses both [[http://github.com/mankoff/pdfmeat][pdfmeat]] and [[http://github.com/mankoff/bibfetch][bibfetch]]. You should have those both
-running on your system and working from the command line, and then
-modify this script so it can access them.
+This script uses [[http://github.com/mankoff/pdfmeat][pdfmeat]]. You should it installed and working from the
+command line, and then modify this script so it can access it.
 
 pdfmeat is a Python script and it relies on pdftotext among other
 things. You should have that installed if you use LaTeX. It also
 depends on a variety of Python modules.
 
-bibfetch is a Perl script that also has several dependencies.
-
-*** Project Status
-
-**** ToDo
-+ [ ] Modify pdfmeat.py to use a search string (title) passed as
-  argument rather than parsing PDF. Explicitly specifying the search
-  term will increase success rate, and pdfmeat.py does a much better
-  job returning full BibTeX records than bibfetch.pl
-+ [ ] Add authors if that field is blank
-+ [ ] Add publisher if field is blank
-+ [ ] Add PDF if none currently linked. bibfetch.pl optionally returns
-  a link to a PDF file. A few more shell commands (curl?) could
-  download it.
-
-**** Done
-+ [X] Run on one or more selected BibDesk records.
-+ [X] For each record, if a title exists in the record, search Google
-  Scholar using that information. 
-+ [X] If a title does not exist and a PDF does, then use pdfmeat with the
-  linked PDF
