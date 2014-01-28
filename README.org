@@ -93,5 +93,5 @@ record. Nothing is overwritten.
 If you search too often, Google Scholar will think you are a robot. In
 this case pdfmeat will return strange errors. Log in with FireFox and
 enter the CAPTCHA to convince Google Scholar you are human, and then
-remove the ".pdfmeat*" files in /tmp/.
+remove the ".pdfmeat*" files in =/tmp/=.
 
