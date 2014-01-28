@@ -1,3 +1,4 @@
+#+OPTIONS: toc:3
 
 * Some BibDesk Apple Scripts
 
@@ -11,20 +12,6 @@ This script does the following:
   5) Attaches the PDF to the publication
   6) Auto-files the PDF
 
-*** Installing bibfetch.pl  
-
-In order to get [[https://github.com/mankoff/bibfetch][bibfetch.pl]] working download the script, and install
-all of the dependencies it needs by typing something similar to the
-following at the shell prompt:
- 
- cpan install App::cpanminus
- and then
- cpanm Foo::Bar
- 
- You might need to use "sudo" before cpan and cpanm
-
-Customize this script to the location where you installed it.
-
 ** pdfmeat.py.scpt
 
 This version takes one or more selected BibDesk records and fills in
@@ -36,12 +23,75 @@ searches Google Scholar.
 Various fields returned by the search are filled in to each existing
 record. Nothing is overwritten.
 
-*** Dependencies
 
-This script uses [[http://github.com/mankoff/pdfmeat][pdfmeat]]. You should it installed and working from the
-command line, and then modify this script so it can access it.
+** Installation
 
-pdfmeat is a Python script and it relies on pdftotext among other
-things. You should have that installed if you use LaTeX. It also
-depends on a variety of Python modules.
+*** BibFetch
+
+    1. Install [[https://github.com/mankoff/bibfetch][bibfetch.pl]] (my version) by downloading and putting
+       somewhere, for example =~/bin= or =~/local/bibfetch/= 
+    2. Run it with =/path/to/bibfetch.pl --pdf --doi DOI= or
+       =/path/to/bibfetch.pl --pdf "Title of Paper"=. It will probably
+       crash, with an error message, at the top mentioning missing
+       packages.
+    3. Install all of the dependencies it needs by typing something
+       similar to the following at the shell prompt:
+       #+BEGIN_SRC perl
+       cpan install App::cpanminus
+       # and then
+       cpanm Foo::Bar
+       #+END_SRC 
+       You might need to use "sudo" before cpan and cpanm
+
+    4. When step (2) above works (a BibTeX record and link to PDF file
+       is returned), you know bibfetch.pl is working
+
+    5. Put the =Bibfetch.pl.scp= in =~/Library/Application
+       Support/BibDesk/Scripts=
+
+    6. Edit it, customizing the path at the top to where your
+       =bibfetch.pl= script is located.
+
+    7. Test it from within BibDesk.
+
+    8. Assign a shortcut key to run it easily from the keyboard.
+
+*** pdfmeat
+
+    1. Install [[https://github.com/mankoff/pdfmeat][pdfmeat]] (my version) by downloading and putting
+       somewhere, for example =~/bin= or =~/local/pdfmeat/= 
+    2. Run it with =/path/to/pdfmeat.py --PDF /path/to/PDF=. It will
+       probably crash, with an error message, at the top mentioning
+       failed import statement
+    3. Install all of the dependencies it needs by typing something
+       similar to the following at the shell prompt:
+       #+BEGIN_SRC python
+       pip install foo
+       # or
+       easy_install foo
+       #+END_SRC 
+       You might need to use "sudo" before =pip= or =easy_install=
+    4. pdfmeat makes use of cookies to access Google Scholar, so you
+       need to launch FireFox once, go to Google Scholar, and set
+       preferences so that BibTeX records are returned when you search
+       on Google Scholar.
+    5. When step (2) above works (a BibTeX record is returned),
+       you know pdfmeat.py is working
+
+    6. Put the =pdfmeat.py.scp= in =~/Library/Application
+       Support/BibDesk/Scripts=
+
+    7. Edit it, customizing the path at the top to where your
+       =pdfmeat.py= script is located.
+
+    8. Test it from within BibDesk.
+
+    9. Assign a shortcut key to run it easily from the keyboard.
+
+**** Troubleshooting
+
+If you search too often, Google Scholar will think you are a robot. In
+this case pdfmeat will return strange errors. Log in with FireFox and
+enter the CAPTCHA to convince Google Scholar you are human, and then
+remove the ".pdfmeat*" files in /tmp/.
 
