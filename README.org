@@ -1,5 +1,15 @@
 #+OPTIONS: toc:3
 
+* DEPRECATED
+
+This project should be considered deprecated. 
+
+As of BibDesk v.1.6.7, BibDesk has native support for importing via DOI. 
+
+#+BEGIN_html
+<hr><hr><hr>
+#+END_html
+
 * Some BibDesk Apple Scripts
 
 ** bibfetch.pl.scpt
